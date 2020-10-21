@@ -1,17 +1,23 @@
 {
 	"name": "pire",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "A Query Language which supports pipeline request.",
-	"main": "index.js",
+	"main": "build/src/parser.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "tsc"
+		"build": "tsc",
+		"prepare": "npm run build"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/pacexy/pire.git"
 	},
-	"keywords": ["pacexy", "pire", "query", "request", "pipeline"],
+	"keywords": [
+		"pacexy",
+		"pire",
+		"query",
+		"pipeline",
+		"request"
+	],
 	"author": "pacexy",
 	"license": "MIT",
 	"bugs": {
@@ -19,8 +25,9 @@
 	},
 	"homepage": "https://github.com/pacexy/pire#readme",
 	"devDependencies": {
-		"hitoka": "^0.2.3",
-		"typescript": "^4.0.3",
-		"@types/node": "^14.11.8"
+		"@types/node": "^14.11.8",
+		"hitoka": "^0.3.0",
+		"ts-node": "^9.0.0",
+		"typescript": "^4.0.3"
 	}
 }
