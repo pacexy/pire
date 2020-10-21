@@ -2,7 +2,7 @@ interface Query {
   [fieldName: string]: Query | undefined
 }
 
-export function parsePire(str: string) {
+export function parsep(str: string) {
   const len = str.length
   let i = 0
 

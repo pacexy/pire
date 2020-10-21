@@ -4,7 +4,9 @@
 ## Example
 > You can write the template string in `pir` file
 ```typescript
-const pir = parsePire(`
+import { parsep } from 'pire'
+
+const pir = parsep(`
 summonerName -> riot.league {
   summonerName
   leaguePoints
@@ -24,7 +26,6 @@ ID -> leaguepedia.player {
   Role
 }
 `)
-
 ```
 
 It will be parsed as:
