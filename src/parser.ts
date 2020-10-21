@@ -2,8 +2,11 @@ interface Query {
   [fieldName: string]: Query | undefined
 }
 
+const VOID = 'void'
+
 export function parsep(str: string) {
   const len = str.length
+  let initial = true
   let i = 0
 
   return parsePipeline()
@@ -14,6 +17,7 @@ export function parsep(str: string) {
       skipWhiteSpace()
       const pipe = parsePipe()
       pipeline.push(pipe)
+      initial = false
     }
     return pipeline
   }
@@ -39,8 +43,11 @@ export function parsep(str: string) {
     skipWhiteSpace()
     const outputFieldPath = parseFieldPath()
 
+    const hasInput = !(initial && inputFieldPath[0] === VOID)
     return {
-      inputFieldPath,
+      ...(hasInput && {
+        inputFieldPath,
+      }),
       collectionPath,
       query,
       outputFieldPath,

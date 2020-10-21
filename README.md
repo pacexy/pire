@@ -2,7 +2,10 @@
 **Pi**pe **Re**quest - make your request like a pipeline.
 
 ## Example
-> You can write the template string in `pir` file
+> You can write the template string in `pir` file.
+
+If you don't want a input, use `void`.
+
 ```typescript
 import { parsep } from 'pire'
 
