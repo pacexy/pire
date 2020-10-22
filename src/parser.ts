@@ -1,6 +1,4 @@
-interface Query {
-  [fieldName: string]: Query | undefined
-}
+import { Query } from './type'
 
 const VOID = 'void'
 
@@ -30,7 +28,6 @@ export function parsep(str: string) {
     const collectionPath = parseCollectionPath()
     skipWhiteSpace()
     const query = parseQuery()
-    skipWhiteSpace()
 
     if (i === len) {
       return {
@@ -74,7 +71,7 @@ export function parsep(str: string) {
   }
 
   function parseQuery() {
-    let query: Query | undefined = undefined
+    let query: Query | 1 = 1
     if (str[i] === '{') {
       i++
       query = {}
@@ -86,6 +83,8 @@ export function parsep(str: string) {
       }
       i++
     }
+    // should skip white space for recursive call
+    skipWhiteSpace()
     return query
   }
 

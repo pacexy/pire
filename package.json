@@ -1,8 +1,8 @@
 {
 	"name": "pire",
-	"version": "0.2.1",
-	"description": "A Query Language which supports pipeline request.",
-	"main": "build/src/parser.js",
+	"version": "0.3.0",
+	"description": "Pipe Request - make your request like a pipeline.",
+	"main": "build/src/index.js",
 	"scripts": {
 		"build": "tsc",
 		"prepare": "npm run build"

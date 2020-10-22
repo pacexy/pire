@@ -10,7 +10,7 @@ If you don't want a input, use `void`.
 import { parsep } from 'pire'
 
 const pir = parsep(`
-summonerName -> riot.league {
+void -> riot.league {
   summonerName
   leaguePoints
   rank
@@ -21,6 +21,9 @@ summonerName -> riot.league {
 summonerId -> riot.summoner {
   profileIconId
   summonerLevel
+  extra {
+    matchIds
+  }
 } -> extra.playerId
 
 ID -> leaguepedia.player {
@@ -35,27 +38,20 @@ It will be parsed as:
 ```
 [
   {
-    inputFieldPath: [ 'summonerName' ],
     collectionPath: [ 'riot', 'league' ],
-    query: {
-      summonerName: undefined,
-      leaguePoints: undefined,
-      rank: undefined,
-      wins: undefined,
-      losses: undefined
-    },
+    query: { summonerName: 1, leaguePoints: 1, rank: 1, wins: 1, losses: 1 },
     outputFieldPath: [ 'summonerId' ]
   },
   {
     inputFieldPath: [ 'summonerId' ],
     collectionPath: [ 'riot', 'summoner' ],
-    query: { profileIconId: undefined, summonerLevel: undefined },
+    query: { profileIconId: 1, summonerLevel: 1, extra: { matchIds: 1 } },
     outputFieldPath: [ 'extra', 'playerId' ]
   },
   {
     inputFieldPath: [ 'ID' ],
     collectionPath: [ 'leaguepedia', 'player' ],
-    query: { ID: undefined, Team: undefined, Role: undefined }
+    query: { ID: 1, Team: 1, Role: 1 }
   }
 ]
 ```
