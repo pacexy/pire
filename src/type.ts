@@ -1,3 +1,3 @@
-export interface Query {
-  [fieldName: string]: Query | 1
+export interface Projection {
+  [fieldName: string]: Projection | 1
 }

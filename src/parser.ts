@@ -1,4 +1,4 @@
-import { Query } from './type'
+import { Projection } from './type'
 
 const VOID = 'void'
 
@@ -27,13 +27,13 @@ export function parsep(str: string) {
     skipWhiteSpace()
     const collectionPath = parseCollectionPath()
     skipWhiteSpace()
-    const query = parseQuery()
+    const projection = parseProjection()
 
     if (i === len) {
       return {
         inputFieldPath,
         collectionPath,
-        query,
+        projection,
       }
     }
     eatArrow()
@@ -46,7 +46,7 @@ export function parsep(str: string) {
         inputFieldPath,
       }),
       collectionPath,
-      query,
+      projection,
       outputFieldPath,
     }
   }
@@ -70,22 +70,22 @@ export function parsep(str: string) {
     return fieldPath
   }
 
-  function parseQuery() {
-    let query: Query | 1 = 1
+  function parseProjection() {
+    let projection: Projection | 1 = 1
     if (str[i] === '{') {
       i++
-      query = {}
+      projection = {}
       skipWhiteSpace()
       while (str[i] !== '}') {
         const fieldName = parseWord()
         skipWhiteSpace()
-        query[fieldName] = parseQuery()
+        projection[fieldName] = parseProjection()
       }
       i++
     }
     // should skip white space for recursive call
     skipWhiteSpace()
-    return query
+    return projection
   }
 
   function parseCollectionPath() {

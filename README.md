@@ -39,19 +39,19 @@ It will be parsed as:
 [
   {
     collectionPath: [ 'riot', 'league' ],
-    query: { summonerName: 1, leaguePoints: 1, rank: 1, wins: 1, losses: 1 },
+    projection: { summonerName: 1, leaguePoints: 1, rank: 1, wins: 1, losses: 1 },
     outputFieldPath: [ 'summonerId' ]
   },
   {
     inputFieldPath: [ 'summonerId' ],
     collectionPath: [ 'riot', 'summoner' ],
-    query: { profileIconId: 1, summonerLevel: 1, extra: { matchIds: 1 } },
+    projection: { profileIconId: 1, summonerLevel: 1, extra: { matchIds: 1 } },
     outputFieldPath: [ 'extra', 'playerId' ]
   },
   {
     inputFieldPath: [ 'ID' ],
     collectionPath: [ 'leaguepedia', 'player' ],
-    query: { ID: 1, Team: 1, Role: 1 }
+    projection: { ID: 1, Team: 1, Role: 1 }
   }
 ]
 ```

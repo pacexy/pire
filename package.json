@@ -1,6 +1,6 @@
 {
 	"name": "pire",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Pipe Request - make your request like a pipeline.",
 	"main": "build/src/index.js",
 	"scripts": {
